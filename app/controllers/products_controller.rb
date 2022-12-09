@@ -9,9 +9,14 @@ class ProductsController < ApplicationController
         render json: product, status: :created
     end
 
+    def show 
+        products = Product.find(params[:id])
+        render json: products
+    end
+
     def update
         product = Product.find(params[:id])
-        product.update(spice_params)
+        product.update(product_params)
         render json: product
     end
 
